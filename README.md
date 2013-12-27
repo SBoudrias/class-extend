@@ -1,4 +1,4 @@
-Class.extend
+Class.extend [![Build Status](https://travis-ci.org/yeoman/generator.png?branch=master)](https://travis-ci.org/SBoudrias/class-extend)
 ============
 
 Backbone's `.extend` like inheritance helper.
