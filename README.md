@@ -1,7 +1,7 @@
 Class.extend [![Build Status](https://travis-ci.org/yeoman/generator.png?branch=master)](https://travis-ci.org/SBoudrias/class-extend)
 ============
 
-Backbone's `.extend` like inheritance helper.
+Backbone's `.extend` like inheritance helper for Node.js
 
 Usage
 ------------
@@ -18,9 +18,9 @@ MyClass.extend = Base.extend;
 
 #### `.extend()`
 
-`.extend` allow you to assign prototypes and static methods.
+`.extend` allow you to assign prototype and static methods.
 
-If no `constructor` method is assigned, the Parent constructor method will be called by default.
+If no `constructor` method is assigned, the parent constructor method will be called by default.
 
 ``` javascript
 // Extend a class
@@ -45,11 +45,11 @@ instance.hello();
 
 #### `.__super__`
 
-Sub classes are assign a static property `__super__` pointing to their parent prototype.
+Sub classes are assigned a `__super__` static property pointing to their parent prototype.
 
 ``` javascript
 var Sub = Parent.extend();
-assert(Sub.__super__.method === Parent.prototype.method);
+assert(Sub.__super__ === Parent.prototype);
 ```
 
 License
