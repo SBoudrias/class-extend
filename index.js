@@ -29,7 +29,7 @@ function extend(protoProps, staticProps) {
   // Set the prototype chain to inherit from `parent`
   child.prototype = Object.create(parent.prototype, {
     constructor: {
-      value: parent,
+      value: child,
       enumerable: false,
       writable: true,
       configurable: true
