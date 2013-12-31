@@ -1,6 +1,6 @@
 {
   "name": "class-extend",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Backbone like Class.extend utility for Node",
   "main": "index.js",
   "scripts": {
