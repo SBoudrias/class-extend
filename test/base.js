@@ -4,7 +4,7 @@ var Base = require('..');
 
 describe('.extend', function () {
   it('create a new object inheriting the Generator', function () {
-    assert.equal(Base.extend().prototype.constructor, Base);
+    assert.ok(new (Base.extend()) instanceof Base);
   });
 
   it('pass the extend method along', function () {
@@ -41,5 +41,10 @@ describe('.extend', function () {
     var Sub = ctor.extend();
     new Sub();
     assert.ok(ctor.calledOnce);
+  });
+
+  it('set constructor as the children', function () {
+    var Child = Base.extend();
+    assert.equal(Child.prototype.constructor, Child);
   });
 });
