@@ -6,14 +6,15 @@ Backbone's `.extend` like inheritance helper for Node.js
 Usage
 ------------
 
-``` javascript
-var Base = require('base');
+You basically got two options:
 
-// Extend from the blank class
+``` javascript
+// 1. Extend from the blank class
+var Base = require('class-extend');
 var Sub = Base.extend();
 
-// Add the .extend helper to a class
-MyClass.extend = Base.extend;
+// 2. Add the .extend helper to a class
+MyClass.extend = require('class-extend').extend;
 ```
 
 #### `.extend()`
