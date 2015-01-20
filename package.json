@@ -2,14 +2,10 @@
   "name": "class-extend",
   "version": "0.1.1",
   "description": "Backbone like Class.extend utility for Node",
-  "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/SBoudrias/class-extend.git"
-  },
+  "repository": "SBoudrias/class-extend",
   "keywords": [
     "inheritance",
     "oop",
@@ -18,14 +14,14 @@
   ],
   "author": "Simon Boudrias",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/SBoudrias/class-extend/issues"
-  },
-  "homepage": "https://github.com/SBoudrias/class-extend",
+  "files": [
+    "index.js"
+  ],
   "dependencies": {
-    "lodash": "~2.4.1"
+    "object-assign": "^2.0.0"
   },
   "devDependencies": {
-    "sinon": "~1.7.3"
+    "mocha": "^2.1.0",
+    "sinon": "^1.12.2"
   }
 }

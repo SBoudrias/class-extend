@@ -1,6 +1,7 @@
+'use strict';
 var assert = require('assert');
 var sinon = require('sinon');
-var Base = require('..');
+var Base = require('../');
 
 describe('.extend', function () {
   it('create a new object inheriting the Generator', function () {
