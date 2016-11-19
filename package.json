@@ -18,10 +18,10 @@
     "index.js"
   ],
   "dependencies": {
-    "object-assign": "^2.0.0"
+    "object-assign": "^4.1.0"
   },
   "devDependencies": {
-    "mocha": "^2.1.0",
+    "mocha": "^3.1.2",
     "sinon": "^1.12.2"
   }
 }
