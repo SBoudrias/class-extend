@@ -40,8 +40,17 @@ function extend(protoProps, staticProps) {
 
   // Add prototype properties (instance properties) to the subclass,
   // if supplied.
-  if (protoProps) objectAssign(child.prototype, protoProps);
+  if (protoProps) {
+    objectAssign(child.prototype, protoProps);
 
+    // Cpy getters and setters
+    Object.keys(protoProps).forEach(function(prop) {
+        var desc = Object.getOwnPropertyDescriptor(protoProps, prop);
+        if(desc.get || desc.set)
+          Object.defineProperty(child.prototype, prop, desc);
+    });
+  }
+    
   // Set a convenience property in case the parent's prototype is needed
   // later.
   child.__super__ = parent.prototype;
