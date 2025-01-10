@@ -1,8 +1,5 @@
 'use strict';
-var objectAssign = require('object-assign');
-var hasOwnProp = Object.prototype.hasOwnProperty;
-
-var Base = module.exports = function () {};
+const Base = module.exports = function () {};
 Base.extend = extend;
 
 /**
@@ -13,20 +10,20 @@ Base.extend = extend;
  * @return {Object}             New sub class
  */
 function extend(protoProps, staticProps) {
-  var parent = this;
-  var child;
+  const parent = this;
 
   // The constructor function for the new subclass is either defined by you
   // (the "constructor" property in your `extend` definition), or defaulted
   // by us to simply call the parent's constructor.
-  if (protoProps && hasOwnProp.call(protoProps, 'constructor')) {
+  let child;
+  if (protoProps && Object.prototype.hasOwnProperty.call(protoProps, 'constructor')) {
     child = protoProps.constructor;
   } else {
     child = function () { return parent.apply(this, arguments); };
   }
 
   // Add static properties to the constructor function, if supplied.
-  objectAssign(child, parent, staticProps);
+  Object.assign(child, parent, staticProps);
 
   // Set the prototype chain to inherit from `parent`
   child.prototype = Object.create(parent.prototype, {
@@ -40,7 +37,7 @@ function extend(protoProps, staticProps) {
 
   // Add prototype properties (instance properties) to the subclass,
   // if supplied.
-  if (protoProps) objectAssign(child.prototype, protoProps);
+  if (protoProps) Object.assign(child.prototype, protoProps);
 
   // Set a convenience property in case the parent's prototype is needed
   // later.

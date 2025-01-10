@@ -1,7 +1,6 @@
-'use strict';
-var assert = require('assert');
-var sinon = require('sinon');
-var Base = require('../');
+const assert = require('assert');
+const sinon = require('sinon');
+const Base = require('..');
 
 describe('.extend', function () {
   it('create a new object inheriting the Generator', function () {
@@ -9,19 +8,19 @@ describe('.extend', function () {
   });
 
   it('pass the extend method along', function () {
-    var Sub = Base.extend();
+    const Sub = Base.extend();
     assert.ok(Sub.extend);
   });
 
   it('assign prototype methods', function () {
-    var proto = { foo: function () {} };
-    var Sub = Base.extend(proto);
+    const proto = { foo: function () {} };
+    const Sub = Base.extend(proto);
     assert.equal(Sub.prototype.foo, proto.foo);
   });
 
   it('assign static methods', function () {
-    var staticProps = { foo: function () {} };
-    var Sub = Base.extend({}, staticProps);
+    const staticProps = { foo: function () {} };
+    const Sub = Base.extend({}, staticProps);
     assert.equal(Sub.foo, staticProps.foo);
   });
 
@@ -30,22 +29,22 @@ describe('.extend', function () {
   });
 
   it('allow setting a custom constructor', function () {
-    var ctor = sinon.spy();
-    var Sub = Base.extend({ constructor: ctor });
+    const ctor = sinon.spy();
+    const Sub = Base.extend({ constructor: ctor });
     new Sub();
     assert.ok(ctor.calledOnce);
   });
 
   it('call the parent constructor by default', function () {
-    var ctor = sinon.spy();
+    const ctor = sinon.spy();
     ctor.extend = Base.extend;
-    var Sub = ctor.extend();
+    const Sub = ctor.extend();
     new Sub();
     assert.ok(ctor.calledOnce);
   });
 
   it('set constructor as the children', function () {
-    var Child = Base.extend();
+    const Child = Base.extend();
     assert.equal(Child.prototype.constructor, Child);
   });
 });
