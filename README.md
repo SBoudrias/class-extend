@@ -1,7 +1,7 @@
-Class.extend [![Build Status](https://travis-ci.org/yeoman/generator.png?branch=master)](https://travis-ci.org/SBoudrias/class-extend)
+Class.extend
 ============
 
-Backbone's `.extend` like inheritance helper for Node.js
+Backbone like `.extend` inheritance helper for Node.js
 
 Usage
 ------------
@@ -10,8 +10,8 @@ You basically got two options:
 
 ``` javascript
 // 1. Extend from the blank class
-var Base = require('class-extend');
-var Sub = Base.extend();
+const Base = require('class-extend');
+const Sub = Base.extend();
 
 // 2. Add the .extend helper to a class
 MyClass.extend = require('class-extend').extend;
@@ -25,21 +25,21 @@ If no `constructor` method is assigned, the parent constructor method will be ca
 
 ``` javascript
 // Extend a class
-var Sub = Parent.extend({
+const Sub = Parent.extend({
   // Overwrite the default constructor
-  constructor: function () {},
+  constructor() {},
 
   // Sub class prototypes methods
-  hello: function () { console.log('hello'); }
+  hello() { console.log('hello'); }
 }, {
   // Constructor static methods
-  hey: function () { console.log('hey'); }
+  hey() { console.log('hey'); }
 });
 
 Sub.hey();
 // LOG: hey
 
-var instance = new Sub();
+const instance = new Sub();
 instance.hello();
 // LOG: hello
 ```
@@ -49,12 +49,12 @@ instance.hello();
 Sub classes are assigned a `__super__` static property pointing to their parent prototype.
 
 ``` javascript
-var Sub = Parent.extend();
+const Sub = Parent.extend();
 assert(Sub.__super__ === Parent.prototype);
 ```
 
 License
 ---------------
 
-Copyright (c) 2013 Simon Boudrias  
+Copyright (c) 2025 Simon Boudrias  
 Licensed under the MIT license.
